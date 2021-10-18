@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="content.aside" remove="true" />
+        <referenceBlock name="product.info.review" remove="true" />
+        <referenceContainer name="div.sidebar.additional" remove="true" />
+        <referenceContainer name="product.info.details" remove="true" />
+        <referenceContainer name="product.info.extrahint" remove="true" />
+        <referenceContainer name="product.info.stock.sku" remove="true" />
+        <referenceContainer name="product.info.details.after.wrapper" remove="true" />
+        
+        <move element="product.info.media" destination="product.page.box" before="-" />
+        <move element="product.info.main" destination="product.page.box" before="product.info.media" />
+        
+        <referenceContainer name="content">
+            <container name="product.page.container" htmlTag="div" htmlClass="product-modal">
+                <container name="product.page.box" htmlTag="div" htmlClass="product-box" />
+            </container>
+            <block name="modal.button" template="Magento_Catalog::product/view/modal.phtml" before="-"/>
+        </referenceContainer>
+    </body>
+</page>
